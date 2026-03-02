@@ -1,0 +1,75 @@
+<div class="container-fluid py-3 bg-light ap-invoices-page">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <div>
+      <h1 class="h4 fw-bold mb-1">AP Invoice</h1>
+      <p class="text-secondary small mb-0">Create accounts payable invoice</p>
+    </div>
+  </div>
+
+  <form [formGroup]="invoiceForm" (ngSubmit)="submit()" class="bg-white border rounded-3 p-3">
+    <div class="row g-3">
+      <div class="col-12 col-md-4">
+        <label class="form-label small text-secondary">Invoice Date</label>
+        <mat-form-field appearance="outline">
+          <input matInput type="date" formControlName="invoiceDate">
+        </mat-form-field>
+      </div>
+
+      <div class="col-12 col-md-8">
+        <label class="form-label small text-secondary">Vendor Name</label>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="vendorName" placeholder="Vendor name">
+        </mat-form-field>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <label class="form-label small text-secondary">Payable Account Id</label>
+        <mat-form-field appearance="outline">
+          <input matInput type="number" formControlName="payableAccountId">
+        </mat-form-field>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <label class="form-label small text-secondary">Expense Account Id</label>
+        <mat-form-field appearance="outline">
+          <input matInput type="number" formControlName="expenseAccountId">
+        </mat-form-field>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <label class="form-label small text-secondary">Tax Account Id</label>
+        <mat-form-field appearance="outline">
+          <input matInput type="number" formControlName="taxAccountId">
+        </mat-form-field>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <label class="form-label small text-secondary">Sub Total</label>
+        <mat-form-field appearance="outline">
+          <input matInput type="number" formControlName="subTotal">
+        </mat-form-field>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <label class="form-label small text-secondary">Tax Total</label>
+        <mat-form-field appearance="outline">
+          <input matInput type="number" formControlName="taxTotal">
+        </mat-form-field>
+      </div>
+
+      <div class="col-12">
+        <label class="form-label small text-secondary">Narration</label>
+        <mat-form-field appearance="outline">
+          <textarea matInput rows="3" formControlName="narration" placeholder="Narration"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end gap-2 pt-3 border-top mt-3">
+      <button class="btn btn-outline-secondary" type="button">Cancel</button>
+      <button class="btn btn-primary" type="submit" [disabled]="submitting">
+        {{ submitting ? 'Saving...' : 'Save Invoice' }}
+      </button>
+    </div>
+  </form>
+</div>

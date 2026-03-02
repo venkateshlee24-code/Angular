@@ -51,14 +51,21 @@ export const routes: Routes = [
           import('./Pages/employees/employees')
             .then(m => m.Employees)
       },
-       {
+      {
         path: 'company',
         loadComponent: () =>
           import('./Pages/company/company')
             .then(m => m.CompanyComponent)
       }
       ,
-       {
+      {
+        path: 'ap-invoices',
+        loadComponent: () =>
+          import('./Pages/ap-invoices/ap-invoices')
+            .then(m => m.ApInvoicesComponent)
+      }
+      ,
+      {
         path: 'admin',
         loadComponent: () =>
           import('./Admin/login-summary/login-summary')
