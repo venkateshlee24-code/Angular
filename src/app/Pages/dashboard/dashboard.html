@@ -1,0 +1,107 @@
+<div class="dashboard-shell">
+  <section class="dashboard-header">
+    <div>
+      <p class="eyebrow">ERP Control Center</p>
+      <h1>Operations & finance overview</h1>
+      <p class="subtitle">
+        Live metrics, workforce health, and operational alerts to keep the teams aligned.
+      </p>
+    </div>
+    <div class="header-actions">
+      <button mat-flat-button color="primary">View live reports</button>
+      <button mat-stroked-button color="primary">Start executive review</button>
+    </div>
+  </section>
+
+  <section class="metrics-grid">
+    <mat-card class="metric-card" *ngFor="let metric of metrics">
+      <div class="metric-icon" [ngClass]="metric.trend">
+        <mat-icon>{{ metric.icon }}</mat-icon>
+      </div>
+      <div>
+        <p class="metric-value">{{ metric.value }}</p>
+        <p class="metric-label">{{ metric.label }}</p>
+        <p class="metric-change" [ngClass]="metric.trend">
+          {{ metric.trend === 'up' ? '▲' : '▼' }} {{ metric.change }}
+        </p>
+      </div>
+    </mat-card>
+  </section>
+
+  <section class="main-grid">
+    <mat-card class="activity-card">
+      <div class="card-header">
+        <div>
+          <h2>Team activity</h2>
+          <span class="subtle">Updated moments ago</span>
+        </div>
+        <button mat-icon-button aria-label="Refresh">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="activity-list">
+        <div class="activity-row" *ngFor="let activity of activities">
+          <div>
+            <div class="activity-title">{{ activity.title }}</div>
+            <div class="activity-detail">{{ activity.detail }}</div>
+          </div>
+          <div class="activity-meta">
+            <mat-chip color="primary">{{ activity.team }}</mat-chip>
+            <span class="activity-time">{{ activity.time }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <h3>Quick actions</h3>
+        <div class="action-buttons">
+          <button mat-flat-button color="accent" *ngFor="let action of quickActions">
+            <mat-icon>{{ action.icon }}</mat-icon>
+            {{ action.label }}
+          </button>
+        </div>
+      </div>
+    </mat-card>
+
+    <mat-card class="snapshot-card">
+      <h2>Workforce snapshot</h2>
+      <div class="attendance-grid">
+        <div class="attendance-row" *ngFor="let item of attendance">
+          <p class="attendance-label">{{ item.label }}</p>
+          <strong>{{ item.value }}</strong>
+          <span class="attendance-detail">{{ item.detail }}</span>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <h3>Active initiatives</h3>
+      <div class="projects">
+        <div class="project-row" *ngFor="let project of projects">
+          <div>
+            <p class="project-name">{{ project.name }}</p>
+            <p class="project-manager">{{ project.manager }}</p>
+          </div>
+          <div class="project-progress">
+            <span class="project-status">{{ project.status }}</span>
+            <mat-progress-bar [value]="project.progress"></mat-progress-bar>
+          </div>
+        </div>
+      </div>
+
+      <h3>Notifications</h3>
+      <div class="notification-list">
+        <div class="notification-row" *ngFor="let note of notifications" [ngClass]="note.type">
+          <div class="notification-icon">
+            <mat-icon>{{ note.icon }}</mat-icon>
+          </div>
+          <div>
+            <strong>{{ note.title }}</strong>
+            <span>{{ note.message }}</span>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </section>
+</div>

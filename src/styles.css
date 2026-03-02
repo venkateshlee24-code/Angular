@@ -1,0 +1,314 @@
+/* ===================================================
+   GLOBAL BASE
+=================================================== */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+body {
+  background: var(--erp-bg);
+  color: var(--erp-text);
+}
+
+
+/* ===================================================
+   ERP AZURE BLUE COLOR PALETTE
+=================================================== */
+
+:root {
+
+  /* PRIMARY (Azure Blue) */
+  --erp-primary: #1565c0;
+  --erp-primary-dark: #0d47a1;
+  --erp-primary-light: #42a5f5;
+
+  /* SECONDARY */
+  --erp-secondary: #00838f;
+  --erp-secondary-light: #4fb3bf;
+
+  /* BACKGROUNDS */
+  --erp-bg: #f5f7fb;
+  --erp-card-bg: #ffffff;
+  --erp-hover-bg: #f0f4ff;
+
+  /* BORDERS */
+  --erp-border: #e0e0e0;
+
+  /* TEXT */
+  --erp-text: #263238;
+  --erp-muted: #607d8b;
+  --erp-heading: #102027;
+
+  /* STATUS COLORS */
+  --erp-success: #2e7d32;
+  --erp-success-bg: #e8f5e9;
+
+  --erp-warning: #f9a825;
+  --erp-warning-bg: #fffde7;
+
+  --erp-error: #d32f2f;
+  --erp-error-bg: #ffebee;
+
+  --erp-info: #0288d1;
+  --erp-info-bg: #e1f5fe;
+
+  /* DISABLED */
+  --erp-disabled: #b0bec5;
+}
+
+/* ===============================
+   AZURE BLUE THEME (DEFAULT)
+================================*/
+
+.azure-blue-theme {
+  --erp-primary: #1565c0;
+  --erp-primary-dark: #0d47a1;
+  --erp-primary-light: #42a5f5;
+
+  --erp-bg: #f5f7fb;
+  --erp-card-bg: #ffffff;
+  --erp-border: #e0e0e0;
+
+  --erp-text: #263238;
+  --erp-muted: #607d8b;
+}
+
+/* ===================================================
+   BODY
+=================================================== */
+
+body {
+  background: var(--erp-bg);
+  color: var(--erp-text);
+}
+
+/* ===================================================
+   HEADER / TOP BAR
+=================================================== */
+
+.header,
+.topbar {
+  background: var(--erp-primary);
+  color: #ffffff;
+}
+
+.header mat-icon {
+  color: var(--erp-primary-dark);
+}
+
+.header {
+  background: #ffffff;
+  color: var(--erp-primary-dark);
+}
+
+.header mat-icon:hover {
+  color: var(--erp-primary);
+}
+
+/* ===================================================
+   SIDEBAR
+=================================================== */
+
+.sidebar {
+  background: var(--erp-primary-dark);
+}
+
+.sidebar a {
+  color: #e3f2fd;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: var(--erp-primary);
+  color: #ffffff;
+}
+
+/* ===================================================
+   TITLES
+=================================================== */
+
+.erp-title,
+.table-title,
+h1, h2, h3 {
+  color: var(--erp-primary);
+  font-weight: 600;
+}
+
+/* ===================================================
+   CARDS
+=================================================== */
+
+.erp-card,
+.mat-table-wrapper {
+  background: var(--erp-card-bg);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* ===================================================
+   FORM FIELDS
+=================================================== */
+
+mat-form-field {
+  width: 100%;
+}
+
+.mat-mdc-form-field.mat-focused
+.mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused
+.mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused
+.mdc-notched-outline__trailing {
+  border-color: var(--erp-primary) !important;
+}
+
+/* ===================================================
+   BUTTONS
+=================================================== */
+
+.mat-mdc-raised-button.mat-primary {
+  background: var(--erp-primary) !important;
+  color: #fff !important;
+}
+
+.mat-mdc-raised-button.mat-accent {
+  background: var(--erp-secondary) !important;
+  color: #fff !important;
+}
+
+.mat-mdc-stroked-button.mat-warn {
+  border-color: var(--erp-error);
+  color: var(--erp-error);
+}
+
+/* ===================================================
+   TABLE
+=================================================== */
+
+table {
+  width: 100%;
+}
+
+mat-header-row {
+  background: var(--erp-hover-bg);
+}
+
+mat-header-cell {
+  color: var(--erp-primary-dark);
+  font-weight: 600;
+}
+
+mat-row:hover {
+  background: #f9fbff;
+}
+
+/* ===================================================
+   STATUS CHIPS
+=================================================== */
+
+.mat-mdc-chip.mat-primary {
+  background: var(--erp-success-bg) !important;
+  color: var(--erp-success) !important;
+}
+
+.mat-mdc-chip.mat-warn {
+  background: var(--erp-error-bg) !important;
+  color: var(--erp-error) !important;
+}
+
+/* ===================================================
+   ICONS
+=================================================== */
+
+mat-icon {
+  vertical-align: middle;
+  color: var(--erp-primary);
+}
+
+/* ===================================================
+   FOOTER
+=================================================== */
+
+.footer {
+  background: #ffffff;
+  border-top: 1px solid var(--erp-border);
+  color: var(--erp-muted);
+  text-align: center;
+  padding: 10px;
+}
+
+/* ===================================================
+   SNACKBAR COLORS
+=================================================== */
+
+.erp-success-snackbar {
+  background: var(--erp-success);
+  color: #ffffff;
+}
+
+.erp-error-snackbar {
+  background: var(--erp-error);
+  color: #ffffff;
+}
+
+.erp-info-snackbar {
+  background: var(--erp-info);
+  color: #ffffff;
+}
+
+
+
+
+
+/* =====================================
+   DARK MODE OVERRIDES
+===================================== */
+
+body.dark-theme {
+  --erp-bg: #121212;
+  --erp-card-bg: #1e1e1e;
+  --erp-border: #333;
+
+  --erp-text: #e0e0e0;
+  --erp-muted: #aaaaaa;
+}
+
+/* Backgrounds */
+body.dark-theme {
+  background: var(--erp-bg);
+  color: var(--erp-text);
+}
+
+/* Cards */
+body.dark-theme .erp-card,
+body.dark-theme .mat-table-wrapper {
+  background: var(--erp-card-bg);
+}
+
+/* Tables */
+body.dark-theme mat-header-row {
+  background: #1c1c1c;
+}
+
+body.dark-theme mat-row:hover {
+  background: #2a2a2a;
+}
+
+/* Sidebar */
+body.dark-theme .sidebar {
+  background: #0d47a1;
+}
+
+/* Inputs */
+body.dark-theme .mat-mdc-form-field {
+  background: transparent;
+}

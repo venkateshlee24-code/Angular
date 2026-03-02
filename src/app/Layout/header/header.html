@@ -1,0 +1,60 @@
+<mat-toolbar color="primary" class="header">
+
+  <!-- Menu Button -->
+  <button mat-icon-button (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Title -->
+  <span class="title">ERP Control Center</span>
+
+  <!-- Push right -->
+  <span class="spacer"></span>
+
+  <!-- User Menu -->
+  <button mat-icon-button [matMenuTriggerFor]="userMenu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <mat-menu #userMenu="matMenu">
+
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>Profile</span>
+    </button>
+
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+
+  </mat-menu>
+
+  <!-- Theme Switch Button -->
+<!-- <button mat-icon-button [matMenuTriggerFor]="themeMenu">
+  <mat-icon>palette</mat-icon>
+</button>
+
+<mat-menu #themeMenu="matMenu">
+  <button mat-menu-item (click)="changeTheme('azure-blue')">
+    <mat-icon>blueprint</mat-icon>
+    Azure Blue
+  </button>
+
+  <button mat-menu-item (click)="changeTheme('rose-red')">
+    <mat-icon>favorite</mat-icon>
+    Rose Red
+  </button>
+
+  <button mat-menu-item (click)="changeTheme('magenta-violet')">
+    <mat-icon>color_lens</mat-icon>
+    Magenta Violet
+  </button>
+
+  <button mat-menu-item (click)="changeTheme('cyan-orange')">
+    <mat-icon>palette</mat-icon>
+    Cyan Orange
+  </button>
+</mat-menu> -->
+
+</mat-toolbar>
