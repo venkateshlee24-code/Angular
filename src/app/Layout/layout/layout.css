@@ -1,36 +1,49 @@
 :host {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  --header-height: 64px;
+  display: block;
+  height: 100vh;
+  overflow: hidden;
 }
 
-:host ::ng-deep app-footer {
-  width: 100%;
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--header-height);
 }
 
 .layout-body {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   width: 100%;
-  min-height: calc(100vh - 64px);
   background: #f5f7fb;
   transition: background-color 0.3s ease;
-  flex: 1;
+  overflow: hidden;
 }
 
 .sidebar-wrapper {
   width: 230px;
+  flex: 0 0 230px;
+  height: 100%;
   transition: width 0.3s ease;
-  min-height: calc(100vh - 64px);
 }
 
 .sidebar-wrapper.collapsed {
   width: 70px;
+  flex-basis: 70px;
 }
 
 .content {
   flex: 1;
+  height: 100%;
+  overflow: auto;
   padding: 32px;
-  min-height: calc(100vh - 64px);
 }
 
 @media (max-width: 768px) {
@@ -40,7 +53,8 @@
 
   .sidebar-wrapper {
     width: 100%;
-    min-height: auto;
+    flex: 0 0 auto;
+    height: auto;
   }
 
   .sidebar-wrapper.collapsed {
@@ -48,6 +62,8 @@
   }
 
   .content {
+    height: auto;
+    flex: 1 1 auto;
     padding: 16px;
   }
 }
