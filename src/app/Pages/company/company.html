@@ -1,143 +1,191 @@
-<form [formGroup]="companyForm" (ngSubmit)="submit()">
+<div class="company-page">
+  <div class="page-shell">
+    <section class="page-main">
+      <div class="page-header">
+        <div class="breadcrumb">
+          <mat-icon>chevron_left</mat-icon>
+          <span>Settings</span>
+          <span class="sep">/</span>
+          <span>Companies</span>
+        </div>
+        <div class="header-actions">
+          <button mat-icon-button aria-label="More">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          <button mat-icon-button aria-label="Close">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
 
-  <div class="erp-grid">
-
-    <!-- Company Code -->
-    <div>
-      <label class="erp-label">
-        <mat-icon>badge</mat-icon> Company Code
-      </label>
-      <mat-form-field appearance="outline">
-        <input matInput formControlName="companyCode">
-      </mat-form-field>
-    </div>
-
-    <!-- Company Name -->
-    <div>
-      <label class="erp-label">
-        <mat-icon>apartment</mat-icon> Company Name
-      </label>
-      <mat-form-field appearance="outline">
-        <input matInput formControlName="companyName">
-      </mat-form-field>
-    </div>
-
-    <!-- Base Currency -->
-    <div>
-      <label class="erp-label">
-        <mat-icon>currency_exchange</mat-icon> Base Currency
-      </label>
-      <mat-form-field appearance="outline">
-        <mat-select formControlName="baseCurrencyId">
-          <mat-option value="1">INR</mat-option>
-          <mat-option value="2">USD</mat-option>
-          <mat-option value="3">EUR</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-
-    <!-- Created By -->
-    <div>
-      <label class="erp-label">
-        <mat-icon>person</mat-icon> Created By
-      </label>
-      <mat-form-field appearance="outline">
-        <input matInput type="number" formControlName="createdBy">
-      </mat-form-field>
-    </div>
-
-  </div>
-
-  <!-- Buttons -->
-  <div class="erp-footer mt-3 mb-3">
-    <button mat-stroked-button color="" type="button">
-      <mat-icon>close</mat-icon> Cancel
-    </button>
-
-    <button mat-raised-button color="" type="submit">
-      <mat-icon>save</mat-icon> Save Company
-    </button>
-  </div>
-
-</form>
-<!-- ================= COMPANY LIST ================= -->
-
-<div class="mat-table-wrapper mt-5">
-
-  <h3 class="table-title">
-    <mat-icon>business</mat-icon>
-    Company List
-  </h3>
-
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
-
-    <!-- Position -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef>#</th>
-      <td mat-cell *matCellDef="let element; let i = index">
-        {{ i + 1 }}
-      </td>
-    </ng-container>
-
-    <!-- Company Code -->
-    <ng-container matColumnDef="companyCode">
-      <th mat-header-cell *matHeaderCellDef>Company Code</th>
-      <td mat-cell *matCellDef="let element">
-        <mat-icon class="text-primary me-1">badge</mat-icon>
-        {{ element.companyCode }}
-      </td>
-    </ng-container>
-
-    <!-- Company Name -->
-    <ng-container matColumnDef="companyName">
-      <th mat-header-cell *matHeaderCellDef>Company Name</th>
-      <td mat-cell *matCellDef="let element">
-        <mat-icon class="text-success me-1">apartment</mat-icon>
-        {{ element.companyName }}
-      </td>
-    </ng-container>
-
-    <!-- Currency -->
-    <ng-container matColumnDef="currency">
-      <th mat-header-cell *matHeaderCellDef>Currency</th>
-      <td mat-cell *matCellDef="let element">
-        {{ element.baseCurrencyId }}
-      </td>
-    </ng-container>
-
-    <!-- Status -->
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef>Status</th>
-      <td mat-cell *matCellDef="let element">
-        <mat-chip
-          [color]="element.isActive ? 'primary' : 'warn'"
-          selected>
-          {{ element.isActive ? 'Active' : 'Inactive' }}
-        </mat-chip>
-      </td>
-    </ng-container>
-
-    <!-- Actions -->
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>Actions</th>
-      <td mat-cell *matCellDef="let element">
-
-        <button mat-icon-button color="primary">
-          <mat-icon>edit</mat-icon>
+      <div class="title-row">
+        <div>
+          <h1>Companies</h1>
+          <p>Manage your company records</p>
+        </div>
+        <button mat-raised-button color="primary" class="primary-btn">
+          <mat-icon>add</mat-icon>
+          Add Company
         </button>
+      </div>
 
-        <button mat-icon-button color="warn">
-          <mat-icon>delete</mat-icon>
+      <div class="toolbar">
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-icon matPrefix>search</mat-icon>
+          <input matInput placeholder="Search Companies...">
+        </mat-form-field>
+        <button mat-stroked-button class="tool-btn">
+          <mat-icon>filter_list</mat-icon>
+          Filter
         </button>
+        <button mat-stroked-button class="tool-btn">
+          <mat-icon>ios_share</mat-icon>
+          Export
+        </button>
+        <button mat-icon-button class="tool-icon" aria-label="List view">
+          <mat-icon>view_list</mat-icon>
+        </button>
+      </div>
 
-      </td>
-    </ng-container>
+      <div class="table-card">
+        <div class="card-header">
+          <mat-icon class="card-icon">apartment</mat-icon>
+          <span>Companies</span>
+        </div>
 
-    <!-- Header & Row -->
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let element; let i = index">
+              {{ i + 1 }}
+            </td>
+          </ng-container>
 
-  </table>
+          <ng-container matColumnDef="companyCode">
+            <th mat-header-cell *matHeaderCellDef>Company Code</th>
+            <td mat-cell *matCellDef="let element">
+              <mat-icon class="row-icon">badge</mat-icon>
+              {{ element.companyCode }}
+            </td>
+          </ng-container>
 
+          <ng-container matColumnDef="companyName">
+            <th mat-header-cell *matHeaderCellDef>Company Name</th>
+            <td mat-cell *matCellDef="let element">
+              <mat-icon class="row-icon">apartment</mat-icon>
+              {{ element.companyName }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="currency">
+            <th mat-header-cell *matHeaderCellDef>Currency</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.baseCurrencyId }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element">
+              <span class="status-pill" [class.inactive]="!element.isActive">
+                {{ element.isActive ? 'Active' : 'Inactive' }}
+              </span>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button color="primary">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <div class="table-footer">
+          <span>1 - 5 of 5</span>
+          <div class="pager">
+            <button mat-icon-button disabled>
+              <mat-icon>chevron_left</mat-icon>
+            </button>
+            <button mat-button class="page active">1</button>
+            <button mat-button class="page">2</button>
+            <button mat-icon-button>
+              <mat-icon>chevron_right</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="page-aside">
+      <form [formGroup]="companyForm" (ngSubmit)="submit()" class="side-form">
+        <div class="side-header">
+          <h2>Add Company</h2>
+          <button mat-icon-button aria-label="Close">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+
+        <div class="side-section-title">Company Information</div>
+
+        <div class="field">
+          <label>Company Code</label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="companyCode">
+            <button mat-stroked-button matSuffix class="suffix-btn" type="button">
+              Generate Code
+            </button>
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <label>Company Name</label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="companyName" placeholder="Enter company name...">
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <label>Base Currency</label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="baseCurrencyId">
+              <mat-option value="1">INR - Indian Rupee</mat-option>
+              <mat-option value="2">USD - United States Dollar</mat-option>
+              <mat-option value="3">EUR - Euro</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <label>Status</label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="isActive">
+              <mat-option [value]="true">Active</mat-option>
+              <mat-option [value]="false">Inactive</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <label>Created By</label>
+          <mat-form-field appearance="outline">
+            <input matInput type="number" formControlName="createdBy">
+          </mat-form-field>
+        </div>
+
+        <div class="side-footer">
+          <button mat-stroked-button type="button">Cancel</button>
+          <button mat-raised-button color="primary" type="submit">Save Company</button>
+        </div>
+      </form>
+    </aside>
+  </div>
 </div>
-

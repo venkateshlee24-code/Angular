@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MaterialModule } from '../../shared/material/material-module';
 import { Header } from '../header/header';
-import { Footer } from '../footer/footer';
 import { Sidebar } from '../sidebar/sidebar';
 
 @Component({
@@ -12,7 +11,6 @@ import { Sidebar } from '../sidebar/sidebar';
     RouterOutlet,
     MaterialModule,
     Header,
-    Footer,
     Sidebar
   ],
   templateUrl: './layout.html',

@@ -49,6 +49,7 @@ export class CompanyComponent implements OnInit {
       companyCode: ['', Validators.required],
       companyName: ['', Validators.required],
       baseCurrencyId: [1, Validators.required],
+      isActive: [true],
       createdBy: [1]
     });
 
