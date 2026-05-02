@@ -263,7 +263,7 @@
           </table>
 
           <div class="alert alert-danger p-2 small" *ngIf="result?.stability_report?.issues?.length">
-            {{ (result?.stability_report?.issues || [])?.slice(0,2)}}
+          
             <span *ngIf="(result?.stability_report?.issues?.length || 0) > 2">…</span>
           </div>
           <div class="alert alert-secondary p-2 small" *ngIf="!result?.stability_report?.issues?.length">No issues reported</div>
