@@ -37,6 +37,18 @@ export const routes: Routes = [
             .then(m => m.Dashboard),
             canActivate: [AuthGuard]
       },
+       {
+        path: 'upload',
+        loadComponent: () =>
+          import('./Pages/upload/upload')
+            .then(m => m.Upload)
+      },
+       {
+        path: 'parser',
+        loadComponent: () =>
+          import('./Pages/parser/parser')
+            .then(m => m.Parser)
+      },
 
       {
         path: 'attendance',

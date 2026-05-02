@@ -1,0 +1,285 @@
+﻿<div class="result-page">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h2 class="page-title">Resume Analysis Result</h2>
+      <div class="header-actions">
+        <button class="btn ghost"><mat-icon>download</mat-icon> Download Resume</button>
+        <button class="btn success"><mat-icon>check_circle</mat-icon> Shortlist</button>
+        <button class="btn danger"><mat-icon>close</mat-icon> Reject</button>
+      </div>
+    </div>
+
+    <div class="upload-section">
+      <div class="row g-3">
+        <div class="col-lg-6">
+          <div class="card upload-card">
+            <div class="card-title">Resume File <span class="req">Required</span></div>
+            <div class="file-box" (click)="resumeInput.click()">
+              <div class="file-left">
+                <mat-icon>description</mat-icon>
+                <div class="file-meta">
+                  <div class="file-name">{{ resumeFile?.name || 'No file selected' }}</div>
+                  <div class="file-note">PDF, DOCX, DOC, TXT up to 5MB</div>
+                </div>
+              </div>
+              <button class="btn ghost">Choose</button>
+              <input type="file" hidden #resumeInput (change)="onResumeSelected($event)">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card upload-card">
+            <div class="card-title">Job Description File <span class="opt">Optional</span></div>
+            <div class="file-box" (click)="jdInput.click()">
+              <div class="file-left">
+                <mat-icon>description</mat-icon>
+                <div class="file-meta">
+                  <div class="file-name">{{ jdFile?.name || 'No file selected' }}</div>
+                  <div class="file-note">Attach a JD to calculate skill match</div>
+                </div>
+              </div>
+              <button class="btn ghost">Choose</button>
+              <input type="file" hidden #jdInput (change)="onJdSelected($event)">
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="upload-actions">
+            <button class="btn ghost" (click)="reset()">Reset</button>
+            <button class="btn primary" (click)="uploadResume()" [disabled]="!resumeFile || uploading">
+              {{ uploading ? 'Uploading...' : 'Analyze Resume' }}
+            </button>
+          </div>
+          <div class="alert error" *ngIf="uploadError">{{ uploadError }}</div>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+
+    <div  *ngIf="result">
+     <div class="container-fluid p-4 bg-light">
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="fw-bold">Resume Analysis Result</h4>
+
+    <div>
+      <button class="btn btn-light border me-2">⬇ Download Resume</button>
+
+      <button class="btn btn-success me-2">✔ Shortlist</button>
+
+      <button class="btn btn-danger">✖ Reject</button>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <!-- LEFT SIDE -->
+    <div class="col-lg-8">
+      <!-- Profile Card -->
+      <div class="card shadow-sm mb-3">
+        <div class="card-body d-flex align-items-center">
+          <img src="https://i.pravatar.cc/80" class="rounded-circle me-3" width="70" />
+
+          <div class="flex-grow-1">
+            <h5 class="mb-1 fw-bold">
+              {{ view.name }}
+              <span class="badge bg-secondary ms-2">{{ view.role }}</span>
+            </h5>
+
+            <div class="text-muted small">
+              📞 {{ view.phone }} &nbsp;&nbsp; ✉ {{ view.email }} &nbsp;&nbsp; 📍 {{ view.location }}
+            </div>
+          </div>
+
+          <!-- Score -->
+          <div class="text-center">
+            <div class="score-circle">{{ view.matchScore }}</div>
+            <small>Match Score</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <!-- Professional Summary -->
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="fw-bold mb-3">Professional Summary</h6>
+
+              {{ view.summary }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="fw-bold mb-3">Technical Skills</h6>
+
+              <ng-container *ngFor="let group of getSkillGroups(); let i = index">
+                <p class="mb-1" [class.mt-3]="i !== 0"><strong>{{ group.label }}</strong></p>
+                <span class="badge bg-light text-dark me-1 mb-1" *ngFor="let item of group.items">
+                  {{ item }}
+                </span>
+              </ng-container>
+              <div class="text-muted" *ngIf="!getSkillGroups().length">N/A</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div class="row g-3 mt-1">
+        <!-- Experience -->
+        <div class="col-md-7">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="fw-bold mb-3">Experience</h6>
+
+              <ul class="timeline" *ngIf="view.experience?.length; else noExp">
+                <li *ngFor="let exp of (view.experience || []) | slice:0:6; let i = index">
+                  <strong>{{ valueOrNA(exp.start_date) }} - {{ exp.end_date || 'Present' }}</strong>
+                  — {{ valueOrNA(exp.company_name) }}
+                  <br />
+                  {{ valueOrNA(exp.role) }}
+                  <div class="badge bg-light text-dark me-1" *ngFor="let tech of (exp.tech_stack || []) | slice:0:4">
+                    {{ tech }}
+                  </div>
+                </li>
+                <li *ngIf="(view.experience?.length || 0) > 6" class="text-muted">…</li>
+              </ul>
+              <ng-template #noExp><div class="text-muted">N/A</div></ng-template>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="col-md-5">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h6 class="fw-bold mb-3">Education</h6>
+
+              <div class="mb-3" *ngFor="let edu of view.education | slice:0:4; let i = index">
+                <strong>{{ valueOrNA(edu.degree) }}</strong>
+                <br />
+                {{ valueOrNA(edu.college_name) }}
+                <div class="badge bg-primary-subtle text-primary" *ngIf="edu.grade">{{ edu.grade }}</div>
+                <div class="text-muted small">{{ valueOrNA(edu.year) }}</div>
+              </div>
+              <div class="text-muted" *ngIf="!view.education?.length">N/A</div>
+
+              <hr />
+
+              <h6 class="fw-bold mt-3">Certifications</h6>
+              <div class="badge bg-light text-dark p-2" *ngIf="result?.parsed_resume?.certification">{{ result?.parsed_resume?.certification }}</div>
+              <div class="text-muted" *ngIf="!result?.parsed_resume?.certification">N/A</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="col-lg-4 d-flex flex-column h-100">
+      <!-- Job Match -->
+      <div class="card shadow-sm mb-3">
+        <div class="card-body">
+          <h6 class="fw-bold mb-3">Job Match Analysis</h6>
+
+          <div class="d-flex justify-content-between">
+            <span>Overall Match</span>
+            <span class="text-danger fw-bold">{{ getMatchScoreLabel() }}</span>
+          </div>
+
+          <div class="progress mt-2 mb-3">
+            <div class="progress-bar bg-danger" [style.width.%]="getMatchScoreValue() || 0"></div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <strong>Matched Skills</strong>
+              <p class="text-muted" *ngIf="!getMatchedSkills().length">None</p>
+              <ul class="text-success small mb-0" *ngIf="getMatchedSkills().length">
+                <li *ngFor="let skill of getMatchedSkills() | slice:0:8">{{ skill }}</li>
+                <li *ngIf="getMatchedSkills().length > 8">…</li>
+              </ul>
+            </div>
+
+            <div class="col-6">
+              <strong>Missing Skills</strong>
+
+              <ul class="text-danger small mb-0">
+                <li *ngFor="let skill of getMissingSkills() | slice:0:8">{{ skill }}</li>
+                <li *ngIf="getMissingSkills().length === 0" class="text-muted">None</li>
+                <li *ngIf="getMissingSkills().length > 8">…</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stability -->
+      <div class="card shadow-sm flex-fill">
+        <div class="card-body">
+          <h6 class="fw-bold mb-3">Stability Report</h6>
+
+          <div class="row text-center mb-3">
+            <div class="col">
+              <small>Average Tenure</small>
+              <h6 class="fw-bold text-warning">{{ valueOrNA(result?.stability_report?.average_tenure_years) }} Years</h6>
+            </div>
+
+            <div class="col">
+              <small>Overall Stability</small>
+              <h6 class="text-danger">{{ valueOrNA(result?.stability_report?.overall_stability) }}</h6>
+            </div>
+          </div>
+
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Duration</th>
+                <th>Rating</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let row of result?.stability_report?.employment_history | slice:0:5">
+                <td>{{ valueOrNA(row?.company_name) }}</td>
+                <td>{{ valueOrNA(row?.tenure_human) }}</td>
+                <td class="text-danger">{{ valueOrNA(row?.stability_rating) }}</td>
+              </tr>
+              <tr *ngIf="!result?.stability_report?.employment_history?.length">
+                <td colspan="3" class="text-muted">N/A</td>
+              </tr>
+              <tr *ngIf="(result?.stability_report?.employment_history?.length || 0) > 5">
+                <td colspan="3" class="text-muted">…</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="alert alert-danger p-2 small" *ngIf="result?.stability_report?.issues?.length">
+            {{ (result?.stability_report?.issues || [])?.slice(0,2)}}
+            <span *ngIf="(result?.stability_report?.issues?.length || 0) > 2">…</span>
+          </div>
+          <div class="alert alert-secondary p-2 small" *ngIf="!result?.stability_report?.issues?.length">No issues reported</div>
+
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-success btn-sm">Shortlist</button>
+
+            <button class="btn btn-outline-primary btn-sm">Schedule</button>
+
+            <button class="btn btn-outline-danger btn-sm">Reject</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div> 
+  </div>
+</div>
