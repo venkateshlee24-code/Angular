@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '../../../../shared/material/material-module';
 
 @Component({
   selector: 'app-header',
   standalone:true,
-  imports: [FormsModule],
+  imports: [FormsModule,MaterialModule],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

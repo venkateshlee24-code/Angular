@@ -1,21 +1,45 @@
-<!-- src/app/Pages/Landing/components/how-it-works/how-it-works.component.html -->
 <section class="how-it-works-section bg-light">
   <div class="container">
+    <!-- Section header with icons -->
     <div class="text-center mb-5" data-aos="fade-up">
+      
       <h2 class="display-5 fw-bold mb-3">How It Works</h2>
       <p class="lead text-secondary">Simple Steps to Smarter HR<br>Get started in minutes and see results that matter.</p>
     </div>
+
+    <!-- Steps grid -->
     <div class="row g-4">
       <div class="col-md-4" *ngFor="let step of steps; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 150">
         <div class="step-card text-center p-4">
-          <div class="step-number mb-3">{{ step.step }}</div>
+          <!-- Step number with icon -->
+          <div class="step-number mb-2">
+            <i class="bi bi-{{ step.icon.split('-')[1] }}-circle-fill me-1 text-primary" style="font-size: 1.2rem;"></i>
+            {{ step.step }}
+          </div>
+          <!-- Main icon -->
           <div class="step-icon mb-3">
             <i class="bi {{ step.icon }} fs-1 text-primary"></i>
           </div>
           <h3 class="h4 fw-bold mb-3">{{ step.title }}</h3>
           <p class="text-secondary">{{ step.description }}</p>
+          <!-- Optional small arrow icon -->
+          <div class="mt-3">
+            <i class="bi bi-arrow-right-circle text-primary opacity-50"></i>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Optional extra icon row -->
+    <!-- <div class="row mt-5 text-center">
+      <div class="col">
+        <div class="d-flex justify-content-center gap-3">
+          <i class="bi bi-check-circle-fill text-primary opacity-25"></i>
+          <i class="bi bi-check-circle-fill text-primary opacity-50"></i>
+          <i class="bi bi-check-circle-fill text-primary opacity-75"></i>
+          <i class="bi bi-check-circle-fill text-primary"></i>
+        </div>
+      </div>
+    </div> -->
   </div>
 </section>

@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '../../../../shared/material/material-module';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-features',
    standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule,MaterialModule,MatIcon],
   templateUrl: './features.html',
   styleUrl: './features.css',
 })

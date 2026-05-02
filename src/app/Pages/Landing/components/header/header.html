@@ -5,7 +5,7 @@
       <div class="logo-image"></div>
       <div class="logo-text">
         <span class="fw-bold text-primary">PeopleFlow</span>
-       
+        <span class="text-secondary"> Enterprise HRMS</span>
       </div>
     </a>
 
@@ -17,41 +17,72 @@
 
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <!-- Product dropdown with Bootstrap icon -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"
-             data-bs-toggle="dropdown" aria-expanded="false">Product</a>
+             data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-grid-3x3-gap-fill me-1"></i> Product
+          </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">HRMS Platform</a></li>
-            <li><a class="dropdown-item" href="#">Payroll</a></li>
-            <li><a class="dropdown-item" href="#">Workforce Analytics</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-people me-2"></i>HRMS Platform</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-calculator me-2"></i>Payroll</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-bar-chart-steps me-2"></i>Workforce Analytics</a></li>
           </ul>
         </li>
+
+        <!-- Solutions dropdown with Material icon -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="solutionsDropdown" role="button"
-             data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
+             data-bs-toggle="dropdown" aria-expanded="false">
+            <mat-icon class="material-icons-outlined me-1" style="font-size: 1.2rem;">business_center</mat-icon>
+            Solutions
+          </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">For Enterprises</a></li>
-            <li><a class="dropdown-item" href="#">For HR Teams</a></li>
-            <li><a class="dropdown-item" href="#">Compliance & Security</a></li>
+            <li><a class="dropdown-item" href="#"><mat-icon class="material-icons me-2" style="font-size: 1rem;">apartment</mat-icon>For Enterprises</a></li>
+            <li><a class="dropdown-item" href="#"><mat-icon class="material-icons me-2" style="font-size: 1rem;">group</mat-icon>For HR Teams</a></li>
+            <li><a class="dropdown-item" href="#"><mat-icon class="material-icons me-2" style="font-size: 1rem;">security</mat-icon>Compliance & Security</a></li>
           </ul>
         </li>
+
+        <!-- Resources dropdown with Bootstrap icon -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
-             data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+             data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-bookmark-star me-1"></i> Resources
+          </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Blog</a></li>
-            <li><a class="dropdown-item" href="#">Guides</a></li>
-            <li><a class="dropdown-item" href="#">Webinars</a></li>
-            <li><a class="dropdown-item" href="#">Help Center</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-2"></i>Blog</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-journal-bookmark-fill me-2"></i>Guides</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-play-circle me-2"></i>Webinars</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-question-circle me-2"></i>Help Center</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+
+        <!-- Pricing link with Bootstrap icon -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="bi bi-tag me-1"></i> Pricing
+          </a>
+        </li>
+
+        <!-- About Us link with Material icon -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <mat-icon class="material-icons-outlined me-1" style="font-size: 1.2rem;">info_outline</mat-icon>
+            About Us
+          </a>
+        </li>
       </ul>
 
+      <!-- Right side buttons with icons -->
       <div class="d-flex gap-2">
-        <a class="btn btn-outline-primary" routerLink="/login">Log In</a>
-        <button class="btn btn-primary" (click)="onRequestDemo()">Request Demo</button>
+        <a class="btn btn-outline-primary" routerLink="/login">
+          <i class="bi bi-box-arrow-in-right me-1"></i> Log In
+        </a>
+        <button class="btn btn-primary" (click)="onRequestDemo()">
+          <mat-icon class="material-icons me-1" style="font-size: 1.1rem;">request_quote</mat-icon>
+          Request Demo
+        </button>
       </div>
     </div>
   </div>

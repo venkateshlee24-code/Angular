@@ -11,5 +11,6 @@ import { Component } from '@angular/core';
 export class Cta {
   onStartFreeTrial() {
     console.log('Start free trial clicked');
+    // Add your trial signup logic here
   }
 }

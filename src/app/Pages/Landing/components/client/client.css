@@ -1,18 +1,78 @@
-/* src/app/Pages/Landing/components/clients/clients.component.css */
-.client-logo {
-  opacity: 0.7;
-  transition: all 0.3s ease;
-  filter: grayscale(10%);
+.clients-section {
+  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
 }
 
-.client-logo:hover {
-  opacity: 1;
-  transform: scale(1.05);
-  filter: grayscale(0%);
+.tracking-wide {
+  letter-spacing: 1px;
 }
 
+/* Card style for each client */
+.client-logo-card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 1rem 0.75rem;
+  transition: all 0.25s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  text-align: center;
+}
+
+.client-logo-card:hover {
+  transform: translateY(-5px);
+  border-color: #e0e7ff;
+  box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+}
+
+.client-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1e293b;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+  display: inline-block;
+}
+
+.client-logo-card:hover .client-name {
+  color: #2563eb;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .client-logo span {
-    font-size: 0.85rem;
+  .client-name {
+    font-size: 0.75rem;
   }
+  .client-logo-card {
+    padding: 0.75rem 0.5rem;
+  }
+  .client-logo-card i.bi-building {
+    font-size: 1.2rem;
+  }
+}
+
+/* Optional decorative quotes */
+.clients-section::before {
+  content: "❝";
+  font-size: 220px;
+  font-family: serif;
+  color: #e2e8f0;
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.clients-section::after {
+  content: "❞";
+  font-size: 220px;
+  font-family: serif;
+  color: #e2e8f0;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  opacity: 0.2;
+  pointer-events: none;
 }

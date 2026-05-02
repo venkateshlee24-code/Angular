@@ -1,11 +1,39 @@
-/* src/app/Pages/Landing/components/cta/cta.component.css */
 .cta-section {
-  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-  color: white;
-  padding: 5rem 0;
+  background-color: #f0f4ff;  /* solid light blue – change as needed */
+  padding: 3rem 0;            /* reduced from 5rem */
 }
 
-.badge {
-  font-size: 1rem;
+.cta-section .badge {
+  font-size: 0.8rem;
   font-weight: 500;
+  border-radius: 30px;
+}
+
+.cta-section .btn-primary {
+  background-color: #2563eb;
+  border: none;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.cta-section .btn-primary:hover {
+  background-color: #1e40af;
+  transform: scale(1.02);
+}
+
+.cta-section h2 {
+  color: #1f2937;
+}
+
+.cta-section .text-secondary {
+  color: #4b5563 !important;
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 2rem 0;
+  }
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
 }
