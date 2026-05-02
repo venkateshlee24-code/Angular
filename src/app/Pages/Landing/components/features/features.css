@@ -22,3 +22,32 @@
   justify-content: center;
   border-radius: 16px;
 }
+.hero-section {
+  position: relative;
+  padding: 40px 0 60px 0;
+  min-height: auto;
+  overflow: hidden;
+}
+
+/* Background image with overlay */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../../Images/new-bg.png'); /* 👈 change to your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+ 
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ensure content sits above the overlay */
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
