@@ -1,0 +1,18 @@
+/* src/app/Pages/Landing/components/clients/clients.component.css */
+.client-logo {
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  filter: grayscale(10%);
+}
+
+.client-logo:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+@media (max-width: 768px) {
+  .client-logo span {
+    font-size: 0.85rem;
+  }
+}

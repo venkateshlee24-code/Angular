@@ -1,0 +1,90 @@
+<footer class="footer bg-dark text-white pt-5">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Column 1: Logo & Description -->
+      <div class="col-lg-4 col-md-6">
+        <h3 class="h4 fw-bold mb-3">
+          <span class="text-primary">PeopleFlow</span>
+          <span class="text-light">Enterprise HRMS</span>
+        </h3>
+        <p class="text-white-50 mb-3">
+          All-in-one HRMS platform for modern enterprises to manage, engage and empower their people.
+        </p>
+        <div class="social-icons d-flex gap-3">
+          <a href="#" class="text-white-50 fs-5"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="text-white-50 fs-5"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="text-white-50 fs-5"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2: Product -->
+      <div class="col-lg-2 col-md-6">
+        <h5 class="fw-bold mb-3">Product</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Features</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Integrations</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Security</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Updates</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Use Cases</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Solutions -->
+      <div class="col-lg-2 col-md-6">
+        <h5 class="fw-bold mb-3">Solutions</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">For Enterprises</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">For HR Teams</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">For Employees</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Workforce Analytics</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Compliance</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Resources -->
+      <div class="col-lg-2 col-md-6">
+        <h5 class="fw-bold mb-3">Resources</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Blog</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Guides</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Webinars</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Help Center</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Templates</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5: Company + Newsletter -->
+      <div class="col-lg-2 col-md-12">
+        <h5 class="fw-bold mb-3">Company</h5>
+        <ul class="list-unstyled mb-4">
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Careers</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Partners</a></li>
+          <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Contact Us</a></li>
+        </ul>
+
+        <h5 class="fw-bold mb-3 mt-3">Newsletter</h5>
+        <p class="small text-white-50">Stay updated with the latest HR trends and PeopleFlow updates.</p>
+        <div class="input-group">
+          <input type="email" class="form-control bg-dark text-white border-secondary" 
+                 placeholder="Enter your email" [(ngModel)]="newsletterEmail">
+          <button class="btn btn-primary" type="button" (click)="onSubscribe()">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar with copyright & legal links -->
+    <div class="row mt-5 pt-3 border-top border-secondary">
+      <div class="col-md-6 text-center text-md-start">
+        <p class="small text-white-50 mb-0">© {{ currentYear }} PeopleFlow HRMS. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <div class="d-flex flex-wrap justify-content-center justify-content-md-end gap-3">
+          <a href="#" class="small text-white-50 text-decoration-none">Privacy Policy</a>
+          <a href="#" class="small text-white-50 text-decoration-none">Terms of Service</a>
+          <a href="#" class="small text-white-50 text-decoration-none">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

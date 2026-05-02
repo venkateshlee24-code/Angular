@@ -1,0 +1,136 @@
+.hero-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  padding: 40px 0 60px 0;
+  min-height: auto;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes staggerFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+.animate-slide-up {
+  animation: slideUp 0.8s ease forwards;
+}
+.animate-slide-up-delay {
+  animation: slideUp 0.8s ease 0.2s forwards;
+  opacity: 0;
+}
+.animate-slide-up-delay-2 {
+  animation: slideUp 0.8s ease 0.4s forwards;
+  opacity: 0;
+}
+.animate-fade-in-right {
+  animation: slideRight 0.8s ease 0.2s forwards;
+  opacity: 0;
+}
+.animate-stagger {
+  animation: staggerFade 0.6s ease forwards;
+  opacity: 0;
+}
+.feature-grid .col-md-4:nth-child(1) { animation-delay: 0.1s; }
+.feature-grid .col-md-4:nth-child(2) { animation-delay: 0.3s; }
+.feature-grid .col-md-4:nth-child(3) { animation-delay: 0.5s; }
+
+/* Badge styling */
+.hero-badge {
+  background-color: #e0e7ff;
+  color: #1e40af;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  display: inline-block;
+  letter-spacing: 0.5px;
+}
+
+.hero-content h1 {
+  line-height: 1.2;
+}
+
+/* Feature grid styling */
+.feature-grid {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1.5rem;
+}
+
+.feature-item h5 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-item ul li {
+  margin-bottom: 0.25rem;
+}
+
+.feature-item i {
+  font-size: 1.5rem;
+}
+
+/* Right side image - with 360° clockwise rotation on hover (no shadow) */
+.hero-image-wrapper {
+  max-width: 600px;
+  margin-left: auto;
+}
+
+.hero-image {
+  width: 100%;
+  height: 500px;
+  background-image: url('../../.././/../Images/landingpagedesign.png'); /* 👈 replace with your image path */
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  transition: transform 0.6s ease-in-out;
+}
+
+.hero-image:hover {
+  transform: rotate(360deg) scale(1.02);
+}
+
+.image-caption {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .hero-section {
+    padding: 30px 0 50px 0;
+    text-align: center;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .feature-grid {
+    text-align: left;
+  }
+  .hero-image-wrapper {
+    margin: 2rem auto 0;
+    max-width: 450px;
+  }
+  .hero-image {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-grid .col-md-4 {
+    margin-bottom: 1.5rem;
+  }
+}

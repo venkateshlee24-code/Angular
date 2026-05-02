@@ -1,1 +1,23 @@
-<p>features works!</p>
+<!-- src/app/Pages/Landing/components/features/features.component.html -->
+<section class="features-section">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="display-5 fw-bold mb-3">Complete HRMS Suite</h2>
+      <p class="lead text-secondary">Everything You Need in One Platform<br>Streamline HR operations and drive employee success</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let feature of features; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 100">
+        <div class="feature-card h-100 p-4 border rounded-4 shadow-sm bg-white">
+          <div class="feature-icon mb-3">
+            <i class="bi {{ feature.icon }} fs-1 text-primary"></i>
+          </div>
+          <h3 class="h4 fw-bold mb-3">{{ feature.title }}</h3>
+          <p class="text-secondary mb-4">{{ feature.description }}</p>
+          <a [href]="feature.link" class="text-primary text-decoration-none fw-semibold">
+            Learn more <i class="bi bi-arrow-right-short"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

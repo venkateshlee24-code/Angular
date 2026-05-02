@@ -1,1 +1,21 @@
-<p>how-it-works works!</p>
+<!-- src/app/Pages/Landing/components/how-it-works/how-it-works.component.html -->
+<section class="how-it-works-section bg-light">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="display-5 fw-bold mb-3">How It Works</h2>
+      <p class="lead text-secondary">Simple Steps to Smarter HR<br>Get started in minutes and see results that matter.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let step of steps; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 150">
+        <div class="step-card text-center p-4">
+          <div class="step-number mb-3">{{ step.step }}</div>
+          <div class="step-icon mb-3">
+            <i class="bi {{ step.icon }} fs-1 text-primary"></i>
+          </div>
+          <h3 class="h4 fw-bold mb-3">{{ step.title }}</h3>
+          <p class="text-secondary">{{ step.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+/* src/app/Pages/Landing/components/testimonials/testimonials.component.css */
+.testimonials-section {
+  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+}
+
+.testimonial-card {
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 3rem rgba(0,0,0,0.1) !important;
+}
+
+.avatar {
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover .avatar {
+  transform: scale(1.1);
+}

@@ -1,0 +1,24 @@
+/* src/app/Pages/Landing/components/features/features.component.css */
+.features-section {
+  background-color: #ffffff;
+}
+
+.feature-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 3rem rgba(0,0,0,0.1) !important;
+}
+
+.feature-icon {
+  background: linear-gradient(135deg, #2563eb10 0%, #1e40af10 100%);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+}

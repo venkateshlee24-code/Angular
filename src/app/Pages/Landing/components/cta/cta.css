@@ -1,0 +1,11 @@
+/* src/app/Pages/Landing/components/cta/cta.component.css */
+.cta-section {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  color: white;
+  padding: 5rem 0;
+}
+
+.badge {
+  font-size: 1rem;
+  font-weight: 500;
+}

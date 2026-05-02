@@ -1,1 +1,82 @@
-<p>hero works!</p>
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Left Content -->
+      <div class="col-lg-6 hero-content">
+        <!-- Badge -->
+        <div class="badge-container mb-3 animate-fade-in">
+          <span class="hero-badge">#1 ENTERPRISE HRMS SOLUTION</span>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="display-4 fw-bold mb-4 animate-slide-up">
+          One Platform.<br>
+          Every HR Process.<br>
+          <span class="text-primary">Stronger Organization.</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="lead text-secondary mb-4 animate-slide-up-delay">
+          PeopleFlow HRMS helps enterprise teams automate HR operations, empower employees,
+          and drive data-backed decisions with confidence.
+        </p>
+
+        <!-- Buttons -->
+        <div class="d-flex flex-wrap gap-3 mb-5 animate-slide-up-delay-2">
+          <button class="btn btn-primary btn-lg px-4" (click)="onRequestDemo()">
+            Request Demo <i class="bi bi-arrow-right-short"></i>
+          </button>
+          <button class="btn btn-outline-primary btn-lg px-4" (click)="onExploreFeatures()">
+            Explore Features <i class="bi bi-arrow-right-short"></i>
+          </button>
+        </div>
+
+        <!-- Feature Grid with Icons & Animation -->
+        <div class="row g-4 feature-grid">
+          <div class="col-md-4 animate-stagger">
+            <div class="feature-item">
+              <i class="bi bi-robot fs-4 text-primary mb-2 d-block"></i>
+              <h5 class="fw-bold">HR Processes Automation</h5>
+              <ul class="list-unstyled small text-secondary">
+                <li><i class="bi bi-check-circle-fill text-primary me-1" style="font-size: 0.7rem;"></i> Employee Experience</li>
+                <li><i class="bi bi-check-circle-fill text-primary me-1" style="font-size: 0.7rem;"></i> Workforce Analytics</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 animate-stagger">
+            <div class="feature-item">
+              <i class="bi bi-shield-lock fs-4 text-primary mb-2 d-block"></i>
+              <h5 class="fw-bold">Compliance & Security</h5>
+              <ul class="list-unstyled small text-secondary">
+                <li><i class="bi bi-check-circle-fill text-primary me-1" style="font-size: 0.7rem;"></i> Performance & Growth</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 animate-stagger">
+            <div class="feature-item">
+              <i class="bi bi-globe2 fs-4 text-primary mb-2 d-block"></i>
+              <h5 class="fw-bold">Enterprise Grade Security</h5>
+              <ul class="list-unstyled small text-secondary">
+                <li><i class="bi bi-check-circle-fill text-primary me-1" style="font-size: 0.7rem;"></i> Scalable for Global Organizations</li>
+                <li><i class="bi bi-check-circle-fill text-primary me-1" style="font-size: 0.7rem;"></i> 99.9% System Uptime</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Image (CSS background, no shadow, rotates 360° on hover) -->
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="hero-image-wrapper animate-fade-in-right">
+          <div class="hero-image"></div>
+          <div class="image-caption text-center mt-3">
+            <div class="progress mb-2" style="height: 6px;">
+              <div class="progress-bar bg-primary" style="width: 78%"></div>
+            </div>
+            <p class="text-muted small"><i class="bi bi-graph-up me-1"></i> HR Automation at work</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
