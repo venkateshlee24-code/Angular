@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-hero',
@@ -9,22 +9,17 @@ import { Component } from '@angular/core';
   styleUrl: './hero.css',
 })
 export class Hero {
- // Feature tags list
-  features = [
-    'Employee Experience',
-    'HR Process Automation',
-    'Workforce Analytics',
-    'Compliance & Security',
-    'Performance & Growth'
-  ];
+ constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   onRequestDemo() {
-    // Scroll to CTA or handle demo request
-    document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
+    if (isPlatformBrowser(this.platformId)) {
+      document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   onExploreFeatures() {
-    // Scroll to features section
-    document.querySelector('.features-section')?.scrollIntoView({ behavior: 'smooth' });
+    if (isPlatformBrowser(this.platformId)) {
+      document.querySelector('.features-section')?.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }

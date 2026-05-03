@@ -1,16 +1,15 @@
-<section class="stats-section bg-primary text-white">
-  <div class="container">
-    <div class="row g-4 text-center">
-      <div class="col-md-6 col-lg-3" *ngFor="let stat of stats" data-aos="zoom-in">
-        <div class="stat-item">
-          <!-- Bootstrap Icon -->
-          <i class="bi {{ stat.bootstrapIcon }} fs-2 mb-2 d-block"></i>
-          <!-- Optional: Use Material Icon instead or in addition -->
-          <!-- <mat-icon class="material-icons mb-2" style="font-size: 2.5rem;">{{ stat.materialIcon }}</mat-icon> -->
-          <div class="display-4 fw-bold mb-2">{{ stat.value }}</div>
-          <div class="text-uppercase small fw-semibold opacity-75">{{ stat.label }}</div>
-          <div class="small text-white-50">{{ stat.suffix }}</div>
-        </div>
+<section class="stats-section bg-blue-600 text-white py-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+      <div *ngFor="let stat of stats" class="stat-item" data-aos="zoom-in">
+        <!-- Bootstrap Icon -->
+        <i class="bi {{ stat.bootstrapIcon }} text-3xl mb-3 block"></i>
+        <!-- Value -->
+        <div class="text-4xl md:text-5xl font-bold mb-2">{{ stat.value }}</div>
+        <!-- Label -->
+        <div class="uppercase text-xs font-semibold opacity-75">{{ stat.label }}</div>
+        <!-- Suffix -->
+        <div class="text-xs text-white/50">{{ stat.suffix }}</div>
       </div>
     </div>
   </div>

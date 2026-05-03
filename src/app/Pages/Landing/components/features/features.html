@@ -1,21 +1,22 @@
-<section class="features-section">
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="display-5 fw-bold mb-3">Complete HRMS Suite</h2>
-      <p class="lead text-secondary">Everything You Need in One Platform<br>Streamline HR operations and drive employee success</p>
+<section class="features-section bg-white py-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h2 class="text-4xl md:text-5xl font-bold mb-3">Complete HRMS Suite</h2>
+      <p class="text-lg text-gray-500">Everything You Need in One Platform<br>Streamline HR operations and drive employee success</p>
     </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4" *ngFor="let feature of features; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 100">
-        <div class="feature-card h-100 p-4 border rounded-4 shadow-sm bg-white">
-          <div class="feature-icon mb-3">
-            <i class="bi {{ feature.icon }} fs-1 text-primary"></i>
-          </div>
-          <h3 class="h4 fw-bold mb-3">{{ feature.title }}</h3>
-          <p class="text-secondary mb-4">{{ feature.description }}</p>
-          <a [href]="feature.link" class="text-primary text-decoration-none fw-semibold">
-            Learn more <i class="bi bi-arrow-right-short"></i>
-          </a>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let feature of features; let i = index" 
+           class="feature-card h-full p-6 border border-gray-100 rounded-xl shadow-sm bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+           data-aos="fade-up" [attr.data-aos-delay]="i * 100">
+        <div class="feature-icon w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 mb-4">
+          <i class="bi {{ feature.icon }} text-3xl text-blue-600"></i>
         </div>
+        <h3 class="text-xl font-bold mb-2">{{ feature.title }}</h3>
+        <p class="text-gray-500 mb-4">{{ feature.description }}</p>
+        <a [href]="feature.link" class="text-blue-600 font-semibold no-underline inline-flex items-center gap-1 hover:gap-2 transition-all">
+          Learn more <i class="bi bi-arrow-right-short text-xl"></i>
+        </a>
       </div>
     </div>
   </div>
