@@ -3,24 +3,12 @@
        [class.w-20]="collapsed">
 
   <!-- Logo -->
-  <div class="p-4 border-b border-gray-100" [class.text-center]="collapsed">
-    <div *ngIf="!collapsed" class="flex items-center gap-2">
-      <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-        <span class="text-white font-bold text-lg">PF</span>
-      </div>
-      <span class="font-bold text-gray-800">PeopleFlow</span>
-    </div>
-    <div *ngIf="collapsed" class="flex justify-center">
-      <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-        <span class="text-white font-bold text-lg">PF</span>
-      </div>
-    </div>
-  </div>
+ 
 
   <!-- Navigation -->
   <nav class="flex-1 py-4 space-y-1">
     <a routerLink="/dashboard"
-       class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+       class="flex items-center px-4 py-2 text-black-700 hover:bg-gray-100 transition"
        [class.justify-center]="collapsed"
        [class.gap-0]="collapsed">
       <mat-icon class="text-xl">dashboard</mat-icon>
