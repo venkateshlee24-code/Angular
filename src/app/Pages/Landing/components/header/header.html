@@ -1,90 +1,130 @@
-<nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
-  <div class="container">
-    <!-- Logo using CSS background-image -->
-    <a class="navbar-brand logo" href="/">
-      <div class="logo-image"></div>
-      <div class="logo-text">
-        <span class="fw-bold text-primary">PeopleFlow</span>
-        <span class="text-secondary"> Enterprise HRMS</span>
+<nav class="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-3 md:py-4">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2">
+       <div class="w-8 h-8 md:w-9 md:h-9 logo-icon"></div>
+        <div class="text-base md:text-xl">
+          <span class="font-bold text-blue-600">PeopleFlow</span>
+          <span class="text-gray-500 hidden sm:inline"> Enterprise HRMS</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (hidden on mobile) -->
+      <div class="hidden md:flex items-center space-x-1 lg:space-x-2">
+        <!-- Product Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-gray-700 hover:text-blue-600 px-2 py-2 text-sm font-medium">
+            <i class="bi bi-grid-3x3-gap-fill"></i> Product
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-20">
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="bi bi-people"></i>HRMS Platform</a>
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="bi bi-calculator"></i>Payroll</a>
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="bi bi-bar-chart-steps"></i>Workforce Analytics</a>
+          </div>
+        </div>
+
+        <!-- Solutions Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-gray-700 hover:text-blue-600 px-2 py-2 text-sm font-medium">
+            <mat-icon class="material-icons-outlined text-lg">business_center</mat-icon> Solutions
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-20">
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><mat-icon class="material-icons text-base">apartment</mat-icon>For Enterprises</a>
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><mat-icon class="material-icons text-base">group</mat-icon>For HR Teams</a>
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><mat-icon class="material-icons text-base">security</mat-icon>Compliance & Security</a>
+          </div>
+        </div>
+
+        <!-- Resources Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-gray-700 hover:text-blue-600 px-2 py-2 text-sm font-medium">
+            <i class="bi bi-bookmark-star"></i> Resources
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-20">
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="bi bi-pencil-square"></i>Blog</a>
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="bi bi-journal-bookmark-fill"></i>Guides</a>
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="bi bi-play-circle"></i>Webinars</a>
+            <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="bi bi-question-circle"></i>Help Center</a>
+          </div>
+        </div>
+
+        <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-blue-600 px-2 py-2 text-sm font-medium"><i class="bi bi-tag"></i> Pricing</a>
+        <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-blue-600 px-2 py-2 text-sm font-medium"><mat-icon class="material-icons-outlined text-lg">info_outline</mat-icon> About Us</a>
       </div>
-    </a>
 
-    <!-- Mobile toggle button -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-            aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-        <!-- Product dropdown with Bootstrap icon -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button"
-             data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-grid-3x3-gap-fill me-1"></i> Product
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#"><i class="bi bi-people me-2"></i>HRMS Platform</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-calculator me-2"></i>Payroll</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-bar-chart-steps me-2"></i>Workforce Analytics</a></li>
-          </ul>
-        </li>
-
-        <!-- Solutions dropdown with Material icon -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="solutionsDropdown" role="button"
-             data-bs-toggle="dropdown" aria-expanded="false">
-            <mat-icon class="material-icons-outlined me-1" style="font-size: 1.2rem;">business_center</mat-icon>
-            Solutions
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#"><mat-icon class="material-icons me-2" style="font-size: 1rem;">apartment</mat-icon>For Enterprises</a></li>
-            <li><a class="dropdown-item" href="#"><mat-icon class="material-icons me-2" style="font-size: 1rem;">group</mat-icon>For HR Teams</a></li>
-            <li><a class="dropdown-item" href="#"><mat-icon class="material-icons me-2" style="font-size: 1rem;">security</mat-icon>Compliance & Security</a></li>
-          </ul>
-        </li>
-
-        <!-- Resources dropdown with Bootstrap icon -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
-             data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-bookmark-star me-1"></i> Resources
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-2"></i>Blog</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-journal-bookmark-fill me-2"></i>Guides</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-play-circle me-2"></i>Webinars</a></li>
-            <li><a class="dropdown-item" href="#"><i class="bi bi-question-circle me-2"></i>Help Center</a></li>
-          </ul>
-        </li>
-
-        <!-- Pricing link with Bootstrap icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="bi bi-tag me-1"></i> Pricing
-          </a>
-        </li>
-
-        <!-- About Us link with Material icon -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <mat-icon class="material-icons-outlined me-1" style="font-size: 1.2rem;">info_outline</mat-icon>
-            About Us
-          </a>
-        </li>
-      </ul>
-
-      <!-- Right side buttons with icons -->
-      <div class="d-flex gap-2">
-        <a class="btn btn-outline-primary" routerLink="/login">
-          <i class="bi bi-box-arrow-in-right me-1"></i> Log In
+      <!-- Desktop Buttons -->
+      <div class="hidden md:flex items-center gap-2">
+        <a routerLink="/login" class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50">
+          <i class="bi bi-box-arrow-in-right"></i> Log In
         </a>
-        <button class="btn btn-primary" (click)="onRequestDemo()">
-          <mat-icon class="material-icons me-1" style="font-size: 1.1rem;">request_quote</mat-icon>
-          Request Demo
+        <button (click)="onRequestDemo()" class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700">
+          <mat-icon class="material-icons text-base">request_quote</mat-icon> Request Demo
         </button>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button (click)="toggleMobileMenu()" class="md:hidden text-gray-500 focus:outline-none">
+        <i class="bi bi-list text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile menu (hidden by default) -->
+    <div [class.hidden]="!mobileMenuOpen" class="md:hidden py-4 border-t border-gray-100">
+      <div class="flex flex-col space-y-3">
+        <!-- Mobile dropdown sections -->
+        <div class="mobile-dropdown-item">
+          <button (click)="toggleMobileDropdown('product')" class="w-full flex justify-between items-center text-gray-700 hover:text-blue-600 px-2 py-2 text-sm font-medium">
+            Product <i [class.rotate-180]="openDropdowns['product']" class="bi bi-chevron-down text-xs transition-transform"></i>
+          </button>
+          <div [class.hidden]="!openDropdowns['product']" class="pl-4 mt-1 space-y-1">
+            <a href="#" class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-blue-600"><i class="bi bi-people"></i>HRMS Platform</a>
+            <a href="#" class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-blue-600"><i class="bi bi-calculator"></i>Payroll</a>
+            <a href="#" class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-blue-600"><i class="bi bi-bar-chart-steps"></i>Workforce Analytics</a>
+          </div>
+        </div>
+
+        <div class="mobile-dropdown-item">
+          <button (click)="toggleMobileDropdown('solutions')" class="w-full flex justify-between items-center text-gray-700 hover:text-blue-600 px-2 py-2 text-sm font-medium">
+            Solutions <i [class.rotate-180]="openDropdowns['solutions']" class="bi bi-chevron-down text-xs transition-transform"></i>
+          </button>
+          <div [class.hidden]="!openDropdowns['solutions']" class="pl-4 mt-1 space-y-1">
+            <a href="#" class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-blue-600"><mat-icon class="material-icons text-base">apartment</mat-icon>For Enterprises</a>
+            <a href="#" class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-blue-600"><mat-icon class="material-icons text-base">group</mat-icon>For HR Teams</a>
+            <a href="#" class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-blue-600"><mat-icon class="material-icons text-base">security</mat-icon>Compliance & Security</a>
+          </div>
+        </div>
+
+        <div class="mobile-dropdown-item">
+          <button (click)="toggleMobileDropdown('resources')" class="w-full flex justify-between items-center text-gray-700 hover:text-blue-600 px-2 py-2 text-sm font-medium">
+            Resources <i [class.rotate-180]="openDropdowns['resources']" class="bi bi-chevron-down text-xs transition-transform"></i>
+          </button>
+          <div [class.hidden]="!openDropdowns['resources']" class="pl-4 mt-1 space-y-1">
+            <a href="#" class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-blue-600"><i class="bi bi-pencil-square"></i>Blog</a>
+            <a href="#" class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-blue-600"><i class="bi bi-journal-bookmark-fill"></i>Guides</a>
+            <a href="#" class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-blue-600"><i class="bi bi-play-circle"></i>Webinars</a>
+            <a href="#" class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-blue-600"><i class="bi bi-question-circle"></i>Help Center</a>
+          </div>
+        </div>
+
+        <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-blue-600 px-2 py-2 text-sm"><i class="bi bi-tag"></i> Pricing</a>
+        <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-blue-600 px-2 py-2 text-sm"><mat-icon class="material-icons-outlined text-base">info_outline</mat-icon> About Us</a>
+
+        <div class="pt-3 flex flex-col gap-2">
+          <a routerLink="/login" class="flex items-center justify-center gap-1 px-3 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-md">Log In</a>
+          <button (click)="onRequestDemo()" class="flex items-center justify-center gap-1 px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-md">Request Demo</button>
+        </div>
       </div>
     </div>
   </div>
 </nav>
-<div style="height: 76px;"></div>
+<div class="h-16 md:h-20"></div>

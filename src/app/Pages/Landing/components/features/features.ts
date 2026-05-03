@@ -7,7 +7,7 @@ import { MatIcon } from '@angular/material/icon';
 @Component({
   selector: 'app-features',
    standalone: true,
-  imports: [CommonModule,FormsModule,MaterialModule,MatIcon],
+  imports: [CommonModule,FormsModule,MaterialModule],
   templateUrl: './features.html',
   styleUrl: './features.css',
 })

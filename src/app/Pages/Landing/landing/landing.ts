@@ -14,7 +14,7 @@ import { Landfooter } from '../components/landfooter/landfooter';
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [CommonModule, Hero, Client, Features, Stats, HowItWorks, Testimonials, Cta,Header,Landfooter],
+  imports: [CommonModule, Hero, Client, Features, Stats, HowItWorks, Cta,Header,Landfooter],
   templateUrl: './landing.html',
   styleUrl: './landing.css',
 })
