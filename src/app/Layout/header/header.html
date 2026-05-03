@@ -1,60 +1,58 @@
-<mat-toolbar color="primary" class="header">
-
-  <!-- Menu Button -->
-  <button mat-icon-button (click)="toggleMenu()">
-    <mat-icon>menu</mat-icon>
+<nav class="bg-blue-600 text-white h-16 md:h-20 fixed top-0 left-0 w-full z-50 shadow-md flex items-center px-4 md:px-6">
+  <!-- Hamburger Menu Button -->
+  <button (click)="toggleMenu()" class="p-2 rounded-md hover:bg-blue-700 transition">
+    <i class="bi bi-list text-2xl"></i>
   </button>
 
   <!-- Title -->
-  <span class="title">ERP Control Center</span>
+  <span class="text-lg md:text-xl font-semibold ml-3">ERP Control Center</span>
 
-  <!-- Push right -->
-  <span class="spacer"></span>
+  <!-- Spacer -->
+  <div class="flex-1"></div>
 
-  <!-- User Menu -->
-  <button mat-icon-button [matMenuTriggerFor]="userMenu">
-    <mat-icon>account_circle</mat-icon>
-  </button>
-
-  <mat-menu #userMenu="matMenu">
-
-    <button mat-menu-item>
-      <mat-icon>person</mat-icon>
-      <span>Profile</span>
+  <!-- Theme Switcher Dropdown -->
+  <div class="relative mr-2">
+    <button (click)="toggleThemeMenu()" class="flex items-center gap-1 p-2 rounded-md hover:bg-blue-700 transition">
+      <i class="bi bi-palette text-xl"></i>
+      <span class="hidden sm:inline text-sm">Theme</span>
+      <i class="bi bi-chevron-down text-sm transition-transform" [class.rotate-180]="themeMenuOpen"></i>
     </button>
 
-    <button mat-menu-item (click)="logout()">
-      <mat-icon>logout</mat-icon>
-      <span>Logout</span>
+    <div *ngIf="themeMenuOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+      <button (click)="changeTheme('azure-blue')" class="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+        <i class="bi bi-droplet"></i> Azure Blue
+      </button>
+      <button (click)="changeTheme('rose-red')" class="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+        <i class="bi bi-suit-heart"></i> Rose Red
+      </button>
+      <button (click)="changeTheme('magenta-violet')" class="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+        <i class="bi bi-palette"></i> Magenta Violet
+      </button>
+      <button (click)="changeTheme('cyan-orange')" class="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+        <i class="bi bi-brush"></i> Cyan Orange
+      </button>
+    </div>
+  </div>
+
+  <!-- User Menu Dropdown -->
+  <div class="relative">
+    <button (click)="toggleUserMenu()" class="flex items-center gap-1 p-2 rounded-md hover:bg-blue-700 transition">
+      <i class="bi bi-person-circle text-2xl"></i>
+      <span class="hidden sm:inline text-sm">Account</span>
+      <i class="bi bi-chevron-down text-sm transition-transform" [class.rotate-180]="userMenuOpen"></i>
     </button>
 
-  </mat-menu>
+    <!-- User dropdown menu -->
+    <div *ngIf="userMenuOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+      <button (click)="goToProfile()" class="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+        <i class="bi bi-person"></i> Profile
+      </button>
+      <button (click)="logout()" class="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+        <i class="bi bi-box-arrow-right"></i> Logout
+      </button>
+    </div>
+  </div>
+</nav>
 
-  <!-- Theme Switch Button -->
-<!-- <button mat-icon-button [matMenuTriggerFor]="themeMenu">
-  <mat-icon>palette</mat-icon>
-</button>
-
-<mat-menu #themeMenu="matMenu">
-  <button mat-menu-item (click)="changeTheme('azure-blue')">
-    <mat-icon>blueprint</mat-icon>
-    Azure Blue
-  </button>
-
-  <button mat-menu-item (click)="changeTheme('rose-red')">
-    <mat-icon>favorite</mat-icon>
-    Rose Red
-  </button>
-
-  <button mat-menu-item (click)="changeTheme('magenta-violet')">
-    <mat-icon>color_lens</mat-icon>
-    Magenta Violet
-  </button>
-
-  <button mat-menu-item (click)="changeTheme('cyan-orange')">
-    <mat-icon>palette</mat-icon>
-    Cyan Orange
-  </button>
-</mat-menu> -->
-
-</mat-toolbar>
+<!-- Click outside overlay (closes both dropdowns) -->
+<div *ngIf="userMenuOpen || themeMenuOpen" class="fixed inset-0 z-40" (click)="closeAllMenus()"></div>

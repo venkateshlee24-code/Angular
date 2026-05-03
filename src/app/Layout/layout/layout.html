@@ -1,11 +1,28 @@
-<app-header class="app-header" (menuClick)="toggleSidebar()"></app-header>
+<!-- Fixed header -->
+<app-header (menuClick)="toggleSidebar()"></app-header>
 
-<div class="layout-body" [class.sidebar-open]="isSidebarOpen">
-  <div class="sidebar-wrapper" [class.collapsed]="!isSidebarOpen">
-    <app-sidebar [collapsed]="!isSidebarOpen"></app-sidebar>
-  </div>
+<!-- Main wrapper with full viewport height and proper padding -->
+<div class="fixed top-0 left-0 w-full h-screen pt-16 md:pt-20 bg-gray-100 overflow-hidden">
+  <!-- Overlay for mobile -->
+  <div *ngIf="isSidebarOpen && !isDesktop"
+       class="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity"
+       (click)="closeSidebar()"></div>
 
-  <main class="content">
+  <!-- Sidebar -->
+  <aside class="fixed top-16 md:top-20 left-0 h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)] z-50 transition-all duration-300"
+         [class.-translate-x-full]="!isSidebarOpen && !isDesktop"
+         [class.transform-none]="isSidebarOpen || isDesktop"
+         [class.w-64]="isDesktop && !isSidebarCollapsed"
+         [class.w-20]="isDesktop && isSidebarCollapsed"
+         [class.w-64]="!isDesktop && isSidebarOpen">
+    <app-sidebar [collapsed]="isDesktop ? isSidebarCollapsed : (!isDesktop && !isSidebarOpen)"></app-sidebar>
+  </aside>
+
+  <!-- Main content – takes remaining width and height, scrolls if needed -->
+  <main class="h-full overflow-y-auto transition-all duration-300 p-4 md:p-6"
+        [class.md:ml-64]="isDesktop && !isSidebarCollapsed"
+        [class.md:ml-20]="isDesktop && isSidebarCollapsed"
+        [class.md:ml-0]="!isDesktop">
     <router-outlet></router-outlet>
   </main>
 </div>

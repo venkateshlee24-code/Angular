@@ -1,38 +1,37 @@
 .login-container {
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, #1976d2, #42a5f5);
+  overflow: hidden;
 }
 
-.login-card {
-  width: 380px;
-  padding: 30px;
-  text-align: center;
-  border-radius: 12px;
-}
-
-.title {
-  margin-bottom: 5px;
-  font-weight: 600;
-}
-
-.subtitle {
-  margin-bottom: 20px;
-  color: gray;
-}
-
-.w-100 {
+/* Background image with blur */
+.login-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background-image: url('../../../Images/bg-image.png'); /* change to your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(4px); /* adjust blur amount (px) */
+  transform: scale(1.05); /* avoids white edges due to blur */
+  z-index: -1;
 }
 
-.extra-links {
-  margin-top: 15px;
-}
+/* Optional: dark overlay to improve text contrast (keeps card readable) */
+.login-container::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
-.extra-links a {
-  text-decoration: none;
-  color: #1976d2;
-  font-size: 14px;
+  z-index: -1;
 }

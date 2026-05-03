@@ -1,70 +1,57 @@
-<div class="login-container">
+<div class="login-container min-h-screen flex items-center justify-center px-4">
+  <div class="max-w-md w-full bg-white rounded-2xl shadow-lg p-8">
+    <h2 class="text-2xl font-bold text-center text-gray-800">Sign In</h2>
+    <p class="text-center text-gray-500 mt-1 mb-6">Enter your credentials to continue</p>
 
-  <mat-card class="login-card">
-
-    <h2 class="title">Sign In</h2>
-    <p class="subtitle">Enter your credentials to continue</p>
-
-    <!-- ✅ Reactive Form -->
-    <form [formGroup]="form" class="login-form">
-
-      <!-- EMAIL -->
-      <mat-form-field appearance="outline" class="w-100">
-        <mat-label>Email</mat-label>
-        <mat-icon matPrefix>email</mat-icon>
-
-        <input
-          matInput
-          type="email"
-          placeholder="Enter email"
-          formControlName="email">
-
-        <mat-error *ngIf="form.get('email')?.hasError('required')">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+      <!-- Email field -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <i class="bi bi-envelope text-gray-400"></i>
+          </div>
+          <input type="email" formControlName="email"
+            class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Enter email">
+        </div>
+        <div *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched" 
+             class="text-red-500 text-xs mt-1">
           Email is required
-        </mat-error>
-
-        <mat-error *ngIf="form.get('email')?.hasError('email')">
+        </div>
+        <div *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched" 
+             class="text-red-500 text-xs mt-1">
           Enter valid email
-        </mat-error>
+        </div>
+      </div>
 
-      </mat-form-field>
-
-      <!-- PASSWORD -->
-      <mat-form-field appearance="outline" class="w-100 mt-4">
-        <mat-label>Password</mat-label>
-        <mat-icon matPrefix>lock</mat-icon>
-
-        <input
-          matInput
-          type="password"
-          placeholder="Enter password"
-          formControlName="password">
-
-        <mat-error *ngIf="form.get('password')?.hasError('required')">
+      <!-- Password field -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <i class="bi bi-lock text-gray-400"></i>
+          </div>
+          <input type="password" formControlName="password"
+            class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="Enter password">
+        </div>
+        <div *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched" 
+             class="text-red-500 text-xs mt-1">
           Password is required
-        </mat-error>
+        </div>
+      </div>
 
-      </mat-form-field>
-
-      <!-- LOGIN BUTTON -->
-      <button
-        mat-raised-button
-        color="primary"
-        class="w-100 mt-4"
-        [disabled]="form.invalid || loading"
-        (click)="submit()">
-
+      <!-- Submit button -->
+      <button type="submit" [disabled]="form.invalid || loading"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed">
         {{ loading ? 'Signing In...' : 'Login' }}
-
       </button>
-
     </form>
 
-    <!-- EXTRA -->
-    <div class="extra-links">
-      <a routerLink="/forgot-password">Forgot Password?</a>
+    <!-- Forgot password -->
+    <div class="text-center mt-4">
+      <a routerLink="/forgot-password" class="text-sm text-blue-600 hover:underline">Forgot Password?</a>
     </div>
-
-  </mat-card>
-
+  </div>
 </div>
